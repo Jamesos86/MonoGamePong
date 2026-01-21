@@ -134,7 +134,7 @@ namespace MonoGamePong
                 leftScore += 1;
             }
 
-            outputText = $"P1: {leftScore} --- P2 {rightScore}";
+            outputText = $"P1: {leftScore} --- P2: {rightScore}";
 
                 base.Update(gameTime);
         }
@@ -160,7 +160,9 @@ namespace MonoGamePong
             spriteBatch.Draw(whiteTexture, rightPaddle, Color.White);
             spriteBatch.Draw(whiteTexture, ball, Color.White);
 
-            spriteBatch.DrawString(font, outputText, new Vector2(0, 0), Color.White);
+
+            float fontsize = font.MeasureString(outputText).X;
+            spriteBatch.DrawString(font, outputText, new Vector2((screenWidth/2) - (fontsize/2), 0), Color.White);
 
 
             spriteBatch.End();
