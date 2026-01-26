@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SharpDX.Direct2D1.Effects;
@@ -82,7 +83,7 @@ namespace MonoGamePong
             whiteTexture.SetData(pixelColor);
 
             font = Content.Load<SpriteFont>("font");
-         
+            Content.Load<SoundEffect>("ball_hit");
         }
 
         protected override void Update(GameTime gameTime)
@@ -161,8 +162,7 @@ namespace MonoGamePong
                     {
                         leftPaddle.Height -= 10;
                     }
-
-
+                    
                 }
                 else if (ball.Intersects(rightPaddle) && ballVelocity.X > 0f)
                 {
